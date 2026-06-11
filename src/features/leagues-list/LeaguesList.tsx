@@ -7,6 +7,7 @@ import { useFilterByType } from "./hooks/useFilterByType";
 import Modal from "../../components/Modal/Modal";
 import { useState } from "react";
 import EmptyState from "../../components/empty-state/EmptyState";
+import type { League } from "./types";
 
 const LeaguesList = () => {
   const { data: leagues } = useFetchAllLeagues();
@@ -14,12 +15,12 @@ const LeaguesList = () => {
   const { TYPE_OPTIONS, filteredByTypeData, onDropdownChange, type } =
     useFilterByType(filteredData);
 
-  const [league, setLeague] = useState(null);
+  const [league, setLeague] = useState<League | null>(null);
   const { data: badges, isLoading: isBadgesLoading } = useFetchBadges(
     league?.idLeague,
   );
 
-  const onCardClick = (league) => {
+  const onCardClick = (league: League) => {
     setLeague(league);
   };
 

@@ -8,10 +8,10 @@ export const useFetchAllLeagues = () => {
   });
 };
 
-export const useFetchBadges = (leagueId: string) => {
+export const useFetchBadges = (leagueId?: string) => {
   return useQuery({
     queryKey: ["league-badges", leagueId],
-    queryFn: () => leaguesApi.fetchBadges(leagueId),
+    queryFn: () => leaguesApi.fetchBadges(leagueId!),
     enabled: !!leagueId,
     staleTime: 1000 * 60 * 5,
   });

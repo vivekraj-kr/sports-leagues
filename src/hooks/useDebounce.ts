@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 const useDebounce = (query: string, limit = 500) => {
   const [debouncedQuery, setDebouncedQuery] = useState(query);
-  const timerRef = useRef(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     timerRef.current = setTimeout(() => {

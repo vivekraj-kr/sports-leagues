@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
+import type { DropdownOption, League } from "../types";
 
-const TYPE_OPTIONS = [
+const TYPE_OPTIONS: DropdownOption[] = [
   {
     id: 1,
     label: "Soccer",
@@ -18,10 +19,10 @@ const TYPE_OPTIONS = [
   },
 ];
 
-export const useFilterByType = (data) => {
+export const useFilterByType = (data?: League[]) => {
   const [type, setType] = useState("");
 
-  const onDropdownChange = useCallback((e) => {
+  const onDropdownChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
     const val = e.target.value;
     setType(val);
   }, []);

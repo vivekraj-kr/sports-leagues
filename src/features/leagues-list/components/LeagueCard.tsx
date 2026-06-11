@@ -1,12 +1,9 @@
 import { memo } from "react";
+import type { League } from "../types";
 
 type LeagueCardProps = {
-  league: {
-    idLeague: string;
-    strLeague: string;
-    strSport: string;
-  };
-  onCardClick: (league) => void;
+  league: League;
+  onCardClick: (league: League) => void;
 };
 
 const LeagueCard = memo(({ league, onCardClick }: LeagueCardProps) => {
